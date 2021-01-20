@@ -5,4 +5,4 @@
 ##
 
 echo ${USER}
-doctl apps update 40accade-9e41-49e3-818a-121720bd8efd --spec ./dev.yaml
+doctl apps update 5d1d7bf3-bb32-49ec-b7ee-71a73ecb688c --spec ./dev.yaml

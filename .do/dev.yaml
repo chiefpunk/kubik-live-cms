@@ -4,6 +4,12 @@ services:
 - build_command: yarn build
   environment_slug: node-js
   envs:
+  - key: SERVER_PORT
+    scope: RUN_AND_BUILD_TIME
+    value: "1337"
+  - key: SERVER_HOST
+    scope: RUN_AND_BUILD_TIME
+    value: 0.0.0.0
   - key: COMMIT_HASH
     scope: RUN_AND_BUILD_TIME
     value: ${_self.COMMIT_HASH}
@@ -38,13 +44,13 @@ services:
     scope: RUN_AND_BUILD_TIME
     value: ${kubik-live-db-dev.SSLMODE}
   github:
-    branch: develop
-    repo: reflektor-digital-inc/kubik-live-cms
+    branch: development
+    repo: RisingStar-Web/kubik-live-cms
   error_document: index.html
   http_port: 1337
   instance_count: 1
   instance_size_slug: basic-xs
-  name: kubik-live-cmd-development
+  name: kubik-live-cms-development
   routes:
-  - path: /cms
+  - path: /
   run_command: yarn start

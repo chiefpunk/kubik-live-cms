@@ -11,15 +11,10 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Agent_ID": {
-      "type": "biginteger",
-      "unique": true,
-      "required": true
-    },
-    "First_Name": {
+    "first_name": {
       "type": "string"
     },
-    "Last_Name": {
+    "last_name": {
       "type": "string"
     }
   }

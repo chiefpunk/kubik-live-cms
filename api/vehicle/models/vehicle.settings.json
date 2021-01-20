@@ -11,10 +11,10 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Model": {
+    "model": {
       "type": "string"
     },
-    "Year": {
+    "year": {
       "type": "integer"
     },
     "image": {
