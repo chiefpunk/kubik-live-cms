@@ -1,0 +1,36 @@
+name: against-all-odds-microsite-test
+region: nyc
+services:
+- dockerfile_path: Dockerfile
+  envs:
+  - key: APP_ENV
+    scope: RUN_AND_BUILD_TIME
+    value: test
+  - key: DATABASE_URL
+    scope: RUN_AND_BUILD_TIME
+    value: ${db-test.DATABASE_URL}
+  - key: PRIVATE_DOMAIN
+    scope: RUN_AND_BUILD_TIME
+    value: ${_self.PRIVATE_DOMAIN}
+  - key: PUBLIC_URL
+    scope: RUN_AND_BUILD_TIME
+    value: ${_self.PUBLIC_URL}
+  - key: COMMIT_HASH
+    scope: RUN_AND_BUILD_TIME
+    value: ${_self.COMMIT_HASH}
+  - key: PRIVATE_URL
+    scope: RUN_AND_BUILD_TIME
+    value: ${_self.PRIVATE_URL}
+  - key: PUBLIC_ROUTE_PATH
+    scope: RUN_AND_BUILD_TIME
+    value: ${_self.PUBLIC_ROUTE_PATH}
+  github:
+    branch: test
+    deploy_on_push: true
+    repo: reflektor-digital-inc/against-all-odds-microsite
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: basic-xs
+  name: against-all-odds-microsite-test
+  routes:
+  - path: /

@@ -1,0 +1,50 @@
+name: kubik-live-cms-development
+region: nyc
+services:
+- build_command: yarn build
+  environment_slug: node-js
+  envs:
+  - key: COMMIT_HASH
+    scope: RUN_AND_BUILD_TIME
+    value: ${_self.COMMIT_HASH}
+  - key: APP_DOMAIN
+    scope: RUN_AND_BUILD_TIME
+    value: ${APP_DOMAIN}
+  - key: APP_URL
+    scope: RUN_AND_BUILD_TIME
+    value: ${APP_URL}
+  - key: PUBLIC_URL
+    scope: RUN_AND_BUILD_TIME
+    value: ${_self.PUBLIC_URL}
+  - key: STRAPI_DATABASE_HOST
+    scope: RUN_AND_BUILD_TIME
+    value: ${kubik-live-db-dev.HOSTNAME}
+  - key: STRAPI_DATABASE_PORT
+    scope: RUN_AND_BUILD_TIME
+    value: ${kubik-live-db-dev.PORT}
+  - key: STRAPI_DATABASE_USERNAME
+    scope: RUN_AND_BUILD_TIME
+    value: ${kubik-live-db-dev.USERNAME}
+  - key: STRAPI_DATABASE_PASSWORD
+    scope: RUN_AND_BUILD_TIME
+    value: ${kubik-live-db-dev.PASSWORD}
+  - key: STRAPI_DATABASE_NAME
+    scope: RUN_AND_BUILD_TIME
+    value: ${kubik-live-db-dev.DATABASE}
+  - key: STRAPI_DATABASE_SSL
+    scope: RUN_AND_BUILD_TIME
+    value: ${kubik-live-db-dev.SSLMODE}
+  - key: STRAPI_DATABASE_SSL_SELF
+    scope: RUN_AND_BUILD_TIME
+    value: ${kubik-live-db-dev.SSLMODE}
+  github:
+    branch: develop
+    repo: reflektor-digital-inc/kubik-live-cms
+  error_document: index.html
+  http_port: 1337
+  instance_count: 1
+  instance_size_slug: basic-xs
+  name: kubik-live-cmd-development
+  routes:
+  - path: /cms
+  run_command: yarn start

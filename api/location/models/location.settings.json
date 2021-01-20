@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "locations",
+  "info": {
+    "name": "Location"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "agents": {
+      "collection": "agent"
+    },
+    "vehicles": {
+      "collection": "vehicle"
+    }
+  }
+}
